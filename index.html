@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English-Hindi Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔄 English-Hindi Translator</h1>
+            <p>Instant translation between English and Hindi</p>
+        </header>
+
+        <main class="translator-container">
+            <div class="translation-box">
+                <div class="input-section">
+                    <div class="language-selector">
+                        <button class="lang-btn active" data-direction="en-hi">
+                            🇺🇸 English → 🇮🇳 Hindi
+                        </button>
+                        <button class="lang-btn" data-direction="hi-en">
+                            🇮🇳 Hindi → 🇺🇸 English
+                        </button>
+                    </div>
+
+                    <div class="text-areas">
+                        <div class="input-area">
+                            <label for="input-text">Enter text to translate:</label>
+                            <textarea 
+                                id="input-text" 
+                                placeholder="Type your message here..."
+                                rows="6"
+                            ></textarea>
+                        </div>
+
+                        <div class="output-area">
+                            <label for="output-text">Translation:</label>
+                            <textarea 
+                                id="output-text" 
+                                placeholder="Translation will appear here..."
+                                rows="6"
+                                readonly
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="translate-btn" class="translate-btn">
+                            🔄 Translate
+                        </button>
+                        <button id="clear-btn" class="clear-btn">
+                            🗑️ Clear
+                        </button>
+                        <button id="copy-btn" class="copy-btn" disabled>
+                            📋 Copy Translation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-area">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <span>Translating...</span>
+                </div>
+                <div id="error-message" class="error-message hidden"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Hugging Face Transformers & MarianMT</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/translator.js') }}"></script>
+</body>
+</html>
